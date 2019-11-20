@@ -16,13 +16,14 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 
 
     public function renderDefault() {
-        //bdump($this['test']);
+        $this['test'];
     }
 
     public function createComponentTest() {
         $control = $this->testFactory->create();
 
-        $control->onSuccess[] = function (Test $test) {
+        //udělá nekonečnou smyčku, ale ilustrativně řeší problém
+        $control->onAnchor[] = function (Test $test) {
             $this->redirect("this");
         };
 
